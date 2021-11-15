@@ -1,0 +1,8 @@
+%h2 Comments
+- @book.comments.each do |comment|
+  .comment-box.d-flex
+    %strong=comment.commenter.capitalize! + ":"
+    %p=comment.body
+    %div.tab
+    - if current_user.present?
+      =link_to "Delete", [comment.book, comment],method: "delete",data:{confirm:"Are you sure?"},class: "btn btn-outline-danger btn-sm"

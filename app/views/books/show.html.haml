@@ -1,0 +1,21 @@
+- if current_user.present?
+  %div.buttons.float-end
+    =link_to "Edit",edit_book_path, class:"btn btn-outline-warning btn-sm"
+    =link_to "Delete", book_path(@book), method: "delete",class:"btn btn-outline-danger btn-sm", data: {confirm: "Are you sure?"}
+%h2=@book.title
+%h3=@book.writer
+- if @book.image.present?
+  =image_tag(@book.image, class:"book-image")
+%p= @book.body
+%br
+%p= @book.likes.count.to_s + " Likes"
+- if current_user.present?
+  - if @book.likes.where(user_id: current_user.id).present?
+    =link_to "Unlike", like_path(id: @book.id), class: "btn btn-outline-secondary btn-sm"
+  - else
+    =link_to "Like", like_path(id: @book.id), class: "btn btn-outline-primary btn-sm"
+
+%hr
+=render "comments/comments"
+%hr
+=render "comments/form"

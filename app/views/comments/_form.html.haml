@@ -1,0 +1,16 @@
+%h4 Add Comment
+=form_with model: [@book, @book.comments.build] do |form|
+  %div
+    =form.label :commenter, class:"form-label"
+    %br
+    =form.text_field :commenter, class:"form-control"
+
+  %div
+    =form.label :body, class:"form-label"
+    %br
+    =form.text_area :body, class:"form-control",row: 5
+
+  %div
+    %br
+      =form.submit :"Create Comment", Class:"btn btn-success btn-sm"
+%br

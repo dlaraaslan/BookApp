@@ -1,9 +1,12 @@
-%div.article-container.mt-5
+%div.mt-5
   %h2.header
     =link_to book.title, book
+    %p
+    =book.writer
   - if book.image.present?
     %br
-    =image_tag(book.image, class: "article-summary-image")
+    =image_tag(book.image, class: "book-summary-image")
+
   %div.body
     =book.body.truncate(500, separator: "...")
     - if book.body.size > 500
