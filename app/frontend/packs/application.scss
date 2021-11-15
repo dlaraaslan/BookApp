@@ -1,0 +1,16 @@
+h1 {
+  color: #95a5a6;
+}
+a{
+  text-decoration: none !important;
+}
+li{
+  list-style: none;
+}
+.content{
+  width: 45vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@import "~bootstrap/scss/bootstrap";
